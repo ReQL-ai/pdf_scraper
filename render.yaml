@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: pdf-extractor
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /docs

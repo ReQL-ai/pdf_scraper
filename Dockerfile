@@ -22,11 +22,11 @@ WORKDIR /app
 # Copy files
 COPY . /app
 
-# Install Python packages
-RUN pip install --upgrade pip && pip install -r requirements.txt
-
 # Install Playwright and browsers
-RUN playwright install --with-deps
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && python -m playwright install --with-deps
+
 
 # Expose port
 EXPOSE 8080
